@@ -1,0 +1,71 @@
+/**
+ * Created by xiaoxia on 2017/3/22.
+ */
+app.directive('hospitalAngular',function(){
+//一级指令
+    return{
+        restrict:"ACEM",
+        templateUrl:"tpl/hospital.html",
+        scope:{
+           hospitalName:"="
+        },
+        replace:true,
+        controller:function($scope){
+            $scope.radioChecked=true;
+            $scope.toggleRadio=function(){
+                $scope.radioChecked=!$scope.radioChecked;
+                $scope.$broadcast('selectAll',$scope.radioChecked)
+            }
+        }
+    }
+}).directive('hospitalInfo',function(con){//二级指令
+    console.log(con);
+    return{
+        restrict:'ACEM',
+        templateUrl:"tpl/hospitalinfo.html",
+        replace:true,
+        scope:{
+            hospitalProduct:"="
+        },
+        controller:function($scope,$rootScope){
+            function temp(){
+                if(!$scope.boxChecked){
+                    con[$scope.hospitalProduct.name]=$scope.sum*$scope.hospitalProduct.price;
+                    console.log(con[$scope.hospitalProduct.name])
+                }else{
+                    con[$scope.hospitalProduct.name]=0;
+                }
+
+                var stat=0;
+                angular.forEach(con,function(value,key){
+                    stat+=value;
+                    console.log(stat);
+                });
+                $rootScope.total=stat
+            }
+            $scope.boxChecked=true;
+            $scope.togglecheckbox=function(){
+                $scope.boxChecked=!$scope.boxChecked;
+                temp()
+            };
+            $scope.sum=$scope.hospitalProduct.count;
+            $scope.minus=function(){
+                $scope.sum--;
+                temp();
+                if($scope.sum<=1){
+                    $scope.sum=1
+                }
+            };
+            $scope.add=function(){
+                $scope.sum++;
+                temp()
+            };
+
+            $scope.$on('selectAll',function(event,data){
+                $scope.boxChecked = data;
+                console.log(data);
+                temp()
+            })
+        }
+    }
+});

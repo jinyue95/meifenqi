@@ -1,0 +1,13 @@
+<ul>
+    <li>
+        <p><i class="icon iconfont" ng-click='togglecheckbox()' ng-class="{'icon-checkbox1':boxChecked,'icon-checkbox':!boxChecked}"></i> <span> {{hospitalProduct.name}}</span></p>
+        <p>
+            ￥<span class="price">{{hospitalProduct.price}}</span>
+            <span class="right">
+                <button class="icon iconfont icon-jian button" ng-click="minus()"></button>
+                <input type="text" class="input" ng-model="sum">
+                <button class="icon iconfont icon-jia button" ng-click="add()"></button>
+            </span>
+        </p>
+    </li>
+</ul>

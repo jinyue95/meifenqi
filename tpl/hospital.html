@@ -1,0 +1,10 @@
+<div class="hospital">
+    <div class="stor_info">
+        <div>
+            <p class="name"><span class="icon iconfont" ng-click="toggleRadio()" ng-class="{'icon-radio':radioChecked,'icon-tahz-':!radioChecked}"></span>  <span >{{hospitalName.store}}</span></p>
+             <hospital-info ng-repeat="m in hospitalName.use" hospital-product="m"></hospital-info>
+            <div class="comment">订单留言 <span class="icon iconfont icon-tubiao6"></span></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

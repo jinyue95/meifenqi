@@ -1,0 +1,24 @@
+<div class="installment">
+    <div class="title">每期还款 ￥<span>4000</span>/期</div>
+    <div class="install_info" >
+        <ul class="stage_list">
+            <li  ng-class="{'bgs': bgs.current == 1}" ng-click="actions.setCurrent(1)">
+                <p>3期</p>
+                <p>(0手续费)</p>
+            </li>
+            <li ng-class="{'bgs': bgs.current == 2}" ng-click="actions.setCurrent(2)">
+                <p>6期</p>
+                <p>(0手续费)</p>
+            </li>
+            <li ng-class="{'bgs': bgs.current == 3}" ng-click="actions.setCurrent(3)">
+                <p>9期</p>
+                <p>(0手续费)</p>
+            </li>
+            <li ng-class="{'bgs': bgs.current == 4}" ng-click="actions.setCurrent(4)">
+                <p>12期</p>
+                <p>(0手续费)</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
