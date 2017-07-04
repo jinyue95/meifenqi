@@ -1,0 +1,2 @@
+# meifenqi
+用angular自定义指令做的购物车结算功能的demo
